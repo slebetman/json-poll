@@ -148,22 +148,28 @@
 				})
 			}
 			
+			function connect () {
+				var url = get('url');
+				var btn = get('connect');
+				if (polling) {
+					btn.innerHTML = 'Connect';
+					url.readOnly = false;
+					url.style.backgroundColor = 'white';
+					polling = false;
+				}
+				else {
+					btn.innerHTML = 'Disconnect';
+					url.readOnly = true;
+					url.style.backgroundColor = '#ccc';
+					polling = true;
+					poll();
+				}
+			}
+			
 			window.onload = function(){
-				get('connect').onclick = function(){
-					var url = get('url');
-					if (polling) {
-						this.innerHTML = 'Connect';
-						url.readOnly = false;
-						url.style.backgroundColor = 'white';
-						polling = false;
-					}
-					else {
-						this.innerHTML = 'Disconnect';
-						url.readOnly = true;
-						url.style.backgroundColor = '#ccc';
-						polling = true;
-						poll();
-					}
+				get('connect').onclick = connect;
+				get('url').onkeypress = function(e){
+					if (e.keyCode == '13') connect();
 				};
 			}
 		</script>
