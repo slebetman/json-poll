@@ -1,0 +1,11 @@
+{
+	"name": "json-poll",
+	"version": "0.1.0",
+	"main": "status.html",
+	"description": "Poll JSON data",
+	"window": {
+		"title": "JSON-Poll",
+		"width": 400,
+		"toolbar": false
+	}
+}
