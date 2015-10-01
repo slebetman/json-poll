@@ -5,7 +5,7 @@
 	"description": "Poll JSON data",
 	"window": {
 		"title": "JSON-Poll",
-		"width": 400,
+		"width": 500,
 		"toolbar": false
 	}
 }
