@@ -21,13 +21,27 @@ body {
 	flex-shrink: 1;
 	padding-left: 3px;
 	padding-right: 3px;
+	display: none;
 }
-#conf {
-	background-color: #ccc;
+#nav {
 	padding: 5px;
 	display: flex;
 	flex-direction: row;
+	flex-shrink: 0;
+}
+#nav input {
+	flex-grow: 1;
+}
+#conf {
+	overflow: auto;
+	flex-shrink: 1;
+	padding: 3em;
+	line-height: 2em;
+	flex-grow: 1;
 }
 #conf input {
-	flex-grow: 1;
+	width: 3em;
+}
+#nav, #conf {
+	background-color: #ccc;
 }

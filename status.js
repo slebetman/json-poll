@@ -1,13 +1,13 @@
 var polling = false;
 function poll() {
-	ajax('http://' + get('url').value,function(err,data){
+	ajax(get('protocol').value + get('url').value,function(err,data){
 		if (err) {
 			get('json').innerHTML = 'Error: ' + err;
 		}
 		else {
 			get('json').innerHTML = prettify(JSON.parse(data),0);
 		}
-		if (polling) setTimeout(poll,1000);
+		if (polling) setTimeout(poll,1000 * parseFloat(get('pollInterval').value));
 	})
 }
 
@@ -19,6 +19,8 @@ function connect () {
 		url.readOnly = false;
 		url.style.backgroundColor = 'white';
 		polling = false;
+		hide('json')
+		show('conf')
 	}
 	else {
 		btn.innerHTML = 'Disconnect';
@@ -26,6 +28,8 @@ function connect () {
 		url.style.backgroundColor = '#ccc';
 		polling = true;
 		poll();
+		hide('conf')
+		show('json')
 	}
 }
 

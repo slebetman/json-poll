@@ -6,8 +6,19 @@
 		<link rel="stylesheet" href="status.css"></link>
 	</head>
 	<body>
+		<div id="nav">
+			http://<input id="url"> <button id="connect">Connect</button>
+		</div>
 		<div id="conf">
-			http://<input id="url"></input> <button id="connect">Connect</button>
+			<div>
+				Polling interval: <input id="pollInterval" value="1">seconds
+			</div>
+			<div>
+				Protocol: <select id="protocol">
+					<option value="http://" selected>http</option>
+					<option value="https://">https</option>
+				</select>
+			</div>
 		</div>
 		<div id="json">
 		</div>
